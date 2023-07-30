@@ -1,6 +1,6 @@
 #  Censored Neural Estimators
 
-Scripts to perform point estimation with neural Bayes estimators and censored input data. The code reproduces the estimators for the random scale mixture process (with `G=4`) used by Richards et al. (2023+) to model extreme Arabian PM2.5 concentrations. Note that due to storage constraints, we can only provide here the data with `G=4`. Whilst the code runs for the other values of `G` considered by Richards et al. (2023+), these data must be acquired from the authors.
+Scripts to perform point estimation with neural Bayes estimators and censored input data. The code reproduces the estimators for the random scale mixture process (with `G=4`) used by Richards et al. (2023+) to model extreme Arabian PM2.5 concentrations. Note that due to storage constraints, we can only provide here the standardised data with `G=4`. Whilst the code will run for the other values of `G` considered by Richards et al. (2023+), the required data must be acquired from the authors. The original PM2.5 concentrations data are provided in `data/PM2.5 concentrations.Rdata`.
 
 For details on neural Bayes estimators, see Sainsbury-Dale et al. (2023+). The scripts in this repository depend on the [NeuralEstimators](https://github.com/msainsburydale/NeuralEstimators.jl) Julia package. An older version of this package is stored within this repository.
 
