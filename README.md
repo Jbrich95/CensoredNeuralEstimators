@@ -1,6 +1,6 @@
 #  Censored Neural Estimators
 
-Scripts to perform point estimation with neural Bayes estimators and censored input data. The code reproduces the estimators for the random scale mixture process (with `G=4`) used by Richards et al. (2023+) to model extreme Arabian PM2.5 concentrations. Note that due to storage limitations, we can only provide here the data with `G=4`. Whilst the code runs for the other values of `G` considered by Richards et al. (2023+), these data must be acquired from the authors.
+Scripts to perform point estimation with neural Bayes estimators and censored input data. The code reproduces the estimators for the random scale mixture process (with `G=4`) used by Richards et al. (2023+) to model extreme Arabian PM2.5 concentrations. Note that due to storage constraints, we can only provide here the data with `G=4`. Whilst the code runs for the other values of `G` considered by Richards et al. (2023+), these data must be acquired from the authors.
 
 For details on neural Bayes estimators, see Sainsbury-Dale et al. (2023+). The scripts in this repository depend on the [NeuralEstimators](https://github.com/msainsburydale/NeuralEstimators.jl) Julia package. An older version of this package is stored within this repository.
 
@@ -9,9 +9,9 @@ For details on neural Bayes estimators, see Sainsbury-Dale et al. (2023+). The s
 To run the script, you must first install `NeuralEstimators` from source.
 
 1. Install the `Julia` version of `NeuralEstimators`.
-	- To install from terminal, run the command `julia -e 'using Pkg; Pkg.add(path="~/CensoredNeuralEstimators.jl/NeuralEstimators.jl")'`.
+	- To install from terminal, run the command `julia -e 'using Pkg; Pkg.add(path="NeuralEstimators.jl")'` when in repository directory.
 1. Install the deep-learning library `Flux` and other pre-requisite packages.
-	- To install from terminal, run the command `julia -e 'using Pkg; Pkg.add(["Flux","Distances","Folds","LinearAlgebra","Distributions","CSV","Tables","Random",'Rdata"])'`
+	- To install from terminal, run the command `julia -e 'using Pkg; Pkg.add(["Flux","Distances","Folds","LinearAlgebra","Distributions","CSV","Tables","Random","RData"])'`
 
 ## References 
 <ul> 
