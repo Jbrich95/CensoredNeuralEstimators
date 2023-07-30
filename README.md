@@ -9,7 +9,7 @@ For details on neural Bayes estimators, see Sainsbury-Dale et al. (2023+). The s
 To run the script, you must first install `NeuralEstimators` from source.
 
 1. Install the `Julia` version of `NeuralEstimators`.
-	- To install from terminal, run the command `julia -e 'using Pkg; Pkg.add(PackageSpec(path="~/CensoredNeuralEstimators.jl/NeuralEstimators.jl"))'`.
+	- To install from terminal, run the command `julia -e 'using Pkg; Pkg.add(path="~/CensoredNeuralEstimators.jl/NeuralEstimators.jl")'`.
 1. Install the deep-learning library `Flux` and other pre-requisite packages.
 	- To install from terminal, run the command `julia -e 'using Pkg; Pkg.add(["Flux","Distances","Folds","LinearAlgebra","Distributions","CSV","Tables","Random",'Rdata"])'`
 
