@@ -107,6 +107,7 @@ Z_test   <- simulate(theta_test,tau_test, m)
 
 
 #Save replicates to pass to NBE in Julia
+dir.create("training_replicates")
 save(Z_train,Z_val,Z_test,theta_train,theta_test,theta_val,m,coords,tau_train,tau_val,tau_test,
      file=paste0("training_replicates/IMSP_reps.Rdata"))
 
