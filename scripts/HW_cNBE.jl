@@ -12,7 +12,7 @@ using RData
 
 
 τ = 0.9 # Set censoring level
-K = 50000 # Set number of training samples. In paper, K = 750000
+K = 500 # Set number of training samples. In paper, K = 750000
 
 G = 4 # Set smoothing level. For G > 4, request data from authors.
 
@@ -228,7 +228,7 @@ p=5 #Number of parameters
 # ---- Training ----
 
 #Create directory to save model fits during training
-int_path = "intermediates/"
+int_path = "intermediates/HW"
 if !isdir(int_path) mkpath(int_path) end
 savepath = "$int_path/runs"
 
@@ -252,6 +252,7 @@ Z = simulate(parameters, m̃[end])
 
 #Assess the estimator for the test data
 assessment = assess([θ̂ ], parameters,Z)
+
 test_risk=risk(assessment)
 print(test_risk)
 savepath = "$int_path/estimates"
@@ -291,4 +292,4 @@ input = gpu(input)
 data_est=_runondevice(θ̂, input, true)
 
 import Tables: table
-CSV.write(savepath * string("/test_estimates.csv"), Tables.table(data_est))
+CSV.write(savepath * string("/application_estimates.csv"), Tables.table(data_est))
