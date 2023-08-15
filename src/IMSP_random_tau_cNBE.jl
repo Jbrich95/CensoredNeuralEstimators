@@ -7,7 +7,10 @@ using Random: seed!
 using RData
 
 
-K=1000 #In paper, K = 125000
+# Set number of training samples K. Here we use K = 1000 to ensure that the code will run on a personal computer. 
+# To reproduce results fully, we use K = 125000 in the paper. Note that using this value of K will lead to memory problems on most personal machines.
+
+K=1000 
 
 
 data=load(string("training_replicates/IMSP_reps.Rdata")) #Load pre-simulated replicates

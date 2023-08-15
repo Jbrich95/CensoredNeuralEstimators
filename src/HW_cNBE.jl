@@ -12,9 +12,15 @@ using RData
 
 
 τ = 0.9 # Set censoring level
-K = 500 # Set number of training samples. In paper, K = 750000
 
-G = 4 # Set smoothing level. For G > 4, request data from authors.
+G = 4 # Set smoothing level. For G > 4, data must be downloaded from https://zenodo.org/record/8246931.
+
+
+# Set number of training samples K. Here we use K = 500 to ensure that the code will run on a personal computer. 
+# To reproduce results fully, see details in paper for values of K used for different G. Note that using the same values of K from the paper will lead to memory problems on most personal machines.
+
+K = 500 
+
 
 
 # Set the prior distribution
