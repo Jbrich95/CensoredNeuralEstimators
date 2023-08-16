@@ -14,7 +14,7 @@ First, download this repository and navigate to its top-level directory within t
 Before installing the software dependencies, users may wish to setup a `conda` environment, so that the dependencies of this repository do not affect the user's current installation. To create a `conda` environment, run the following command in terminal:
 
 ```
-conda create -n CensoredNeuralEstimators -c conda-forge julia=1.7.1 r-base nlopt
+conda create -n CensoredNeuralEstimators -c conda-forge julia=1.8.0 r-base nlopt
 ```
 
 Then activate the `conda` environment with:
@@ -25,7 +25,7 @@ conda activate CensoredNeuralEstimators
 
 The above `conda` environment installs Julia and R automatically. If you do not wish to use a `conda` environment, you will need to install Julia and R manually if they are not already on your system:  
 
-- Install Julia 1.7.1. (See [here](https://urldefense.com/v3/__https://julialang.org/downloads/__;!!Nmw4Hv0!xmRvCNlB05kCY-VXdaeczmzYcfzVGYUXX_VQPpW-OnVNw0rs-Hgy_8QtK214VbIkK9BX_aXwGq63LQ2Jm_5MhM8zTg$ ).)
+- Install Julia 1.8.0. (See [here](https://urldefense.com/v3/__https://julialang.org/downloads/__;!!Nmw4Hv0!xmRvCNlB05kCY-VXdaeczmzYcfzVGYUXX_VQPpW-OnVNw0rs-Hgy_8QtK214VbIkK9BX_aXwGq63LQ2Jm_5MhM8zTg$ ).)
 - Install R >= 4.0.0. (See [here](https://urldefense.com/v3/__https://www.r-project.org/__;!!Nmw4Hv0!xmRvCNlB05kCY-VXdaeczmzYcfzVGYUXX_VQPpW-OnVNw0rs-Hgy_8QtK214VbIkK9BX_aXwGq63LQ2Jm_5875q9TQ$ ).)
 
 Once Julia and R are setup, install package dependencies by running:
