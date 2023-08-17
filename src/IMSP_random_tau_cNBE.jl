@@ -7,10 +7,10 @@ using Random: seed!
 using RData
 
 
-# Set number of training samples K. Here we use K = 1000 to ensure that the code will run on a personal computer. 
+# Set number of training samples K. Here we use K = 1000 to ensure that the code will run on a personal computer.
 # To reproduce results fully, we use K = 125000 in the paper. Note that using this value of K will lead to memory problems on most personal machines.
 
-K=1000 
+K=1000
 
 
 data=load(string("training_replicates/IMSP_reps.Rdata")) #Load pre-simulated replicates
@@ -73,7 +73,7 @@ loadparams!(θ̂, loadbestweights(string(savepath,"_m",m̃[end]))) # Load best s
 
 
 #Assess the estimator for the test data
-assessment = assess([θ̂], data["theta_test"], (data["Z_test"],tau_test) )
+assessment = assess([θ̂], data["theta_test"], (data["Z_test"],tau_test) , verbose = false)
 test_risk=risk(assessment)
 print(test_risk)
 
@@ -94,7 +94,7 @@ using NeuralEstimators: _runondevice
 for it in 1:10
 	test_input=load(string("training_replicates/IMSP_test_reps",it,".Rdata"))
 	tau_test= [[vec(test_input["tau_test"])[1]] for i ∈ eachindex(test_input["Z_test"])]
-	test_assessment = assess([θ̂], test_input["theta_test"], (test_input["Z_test"],tau_test) )
+	test_assessment = assess([θ̂], test_input["theta_test"], (test_input["Z_test"],tau_test) ,verbose = false)
 
 	CSV.write(savepath * string("/single_par_test_estimates", it, ".csv"), test_assessment.df)
 end

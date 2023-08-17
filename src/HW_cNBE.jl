@@ -16,10 +16,10 @@ using RData
 G = 4 # Set smoothing level. For G > 4, data must be downloaded from https://zenodo.org/record/8246931.
 
 
-# Set number of training samples K. Here we use K = 500 to ensure that the code will run on a personal computer. 
+# Set number of training samples K. Here we use K = 500 to ensure that the code will run on a personal computer.
 # To reproduce results fully, see details in paper for values of K used for different G. Note that using the same values of K from the paper will lead to memory problems on most personal machines.
 
-K = 500 
+K = 500
 
 
 
@@ -253,11 +253,11 @@ loadparams!(θ̂, loadbestweights(string(savepath,"_m",m̃[end]))) # Load best s
 
 # ---- Assess the estimator ----
 
-parameters = Parameters(1000, ξ) #Draw test parameters and data
-Z = simulate(parameters, m̃[end])
+params = Parameters(1000, ξ) #Draw test parameters and data
+test_Z = simulate(params, m̃[end])
 
 #Assess the estimator for the test data
-assessment = assess([θ̂ ], parameters,Z)
+assessment = assess([θ̂ ], params,test_Z, verbose = false)
 
 test_risk=risk(assessment)
 print(test_risk)
@@ -272,10 +272,10 @@ CSV.write(savepath * "/test_risk.csv", test_risk)
 #We now assess the estimator for single parameter values.
 for it in 1:20
 
-	parameters = Parameters(1, ξ)
-	Z = [simulate(parameters, m̃[end])[1] for i in 1:1000]
+	params = Parameters(1, ξ)
+	test_Z = [simulate(params, m̃[end])[1] for i in 1:1000]
 
-    test_assessment = assess([θ̂ ], parameters, Z)
+    test_assessment = assess([θ̂ ], params, test_Z, verbose = false)
 
 	CSV.write(savepath * string("/single_par_test_estimates", it, ".csv"), test_assessment.df)
 end

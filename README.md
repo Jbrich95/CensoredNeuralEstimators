@@ -11,7 +11,7 @@ The scripts in this repository are based primarily on the Julia package [NeuralE
 
 First, download this repository and navigate to its top-level directory within terminal.
 
-Before installing the software dependencies, users may wish to setup a `conda` environment, so that the dependencies of this repository do not affect the user's current installation. To create a `conda` environment, run the following command in terminal:
+Before installing the software dependencies, users may wish to setup a [`conda`](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html) environment, so that the dependencies of this repository do not affect the user's current installation. To create a `conda` environment, run the following command in terminal:
 
 ```
 conda create -n CensoredNeuralEstimators -c conda-forge julia=1.8.0 r-base nlopt
@@ -37,11 +37,16 @@ Once Julia and R are setup, install package dependencies by running:
 
 The code in `src` reproduces training and assessment of two of the estimators used by Richards et al. (2023+):
 
-* `HW_cNBE.jl`: this script constructs estimators for the random scale mixture process used by Richards et al. (2023+) to model extreme Arabian PM2.5 concentrations. Training is conducted using "simulation-on-the-fly", and is done solely via this Julia script. Due to GitHub's requirement that individual files do not exceed 50 BM in size, we only provide here the standardised data with `G=4` used in the application. Whilst the code will run for the other values of `G` considered by Richards et al. (2023+), the required data must be downloaded from <u><a href="https://urldefense.com/v3/__https://doi.org/10.5281/zenodo.8246931__;!!Nmw4Hv0!2MGmd5XilWCrD15Y3NNPSxQnfZwq3X3suz-Fo0QcgMAwD_RfkmHog2Y6oLcsorucWfVVJSi1kMhlXncLVjaqNwWhfg$
+* `HW_cNBE.jl`: this script constructs estimators for the random scale mixture process used by Richards et al. (2023+) to model extreme Arabian PM2.5 concentrations. Training is conducted using "simulation-on-the-fly", and is done solely via this Julia script. Due to GitHub's requirement that individual files do not exceed 50MB in size, we only provide here the standardised data with `G=4` used in the application. Whilst the code will run for the other values of `G` considered by Richards et al. (2023+), the required data must be downloaded from <u><a href="https://urldefense.com/v3/__https://doi.org/10.5281/zenodo.8246931__;!!Nmw4Hv0!2MGmd5XilWCrD15Y3NNPSxQnfZwq3X3suz-Fo0QcgMAwD_RfkmHog2Y6oLcsorucWfVVJSi1kMhlXncLVjaqNwWhfg$
 ">Zenodo</a></u> and placed in `data/`. The original PM2.5 concentrations data are provided in `data/PM25_original.Rdata`.
 * `simulate_IMSP_random_tau.R`, followed by `IMSP_random_tau_cNBE.jl`: reproduces the "random-tau" estimator for the inverted max-stable process (IMSP; see Section 4.3 of Richards et al., 2023+). Simulation of the IMSP is first carried out in R using `simulate_IMSP_random_tau.R`. We then pass these replicates to Julia and train the estimator using `IMSP_random_tau_cNBE.jl`.
 
 Note that the scripts are designed to run quickly using a very small number of sampled parameter vectors during training (i.e., setting 'K' in the manuscript to be very small); to fully replicate the estimators used by Richards et al. (2023+), this value must be changed (detailed comments are included in the scripts).
+
+Julia must be started with the command `julia --project=.` in order to load an environment with the correct package dependencies. Users wishing to run the scripts from the terminal may enter the following commands:
+* `julia --project=. --threads=auto src/HW_cNBE.jl`
+* `Rscript src/simulate_IMSP_random_tau.R`
+* `julia --project=. --threads=auto src/IMSP_random_tau_cNBE.jl`
 
 
 ## References
