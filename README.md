@@ -41,13 +41,13 @@ The code in `src` reproduces training and assessment of two of the estimators us
 ">Zenodo</a></u> and placed in `data/`. The original PM2.5 concentrations data are provided in `data/PM25_original.Rdata`.
 * `simulate_IMSP_random_tau.R`, followed by `IMSP_random_tau_cNBE.jl`: reproduces the "random-tau" estimator for the inverted max-stable process (IMSP; see Section 4.3 of Richards et al., 2023+). Simulation of the IMSP is first carried out in R using `simulate_IMSP_random_tau.R`. We then pass these replicates to Julia and train the estimator using `IMSP_random_tau_cNBE.jl`.
 
-Note that the scripts are designed to run quickly using a very small number of sampled parameter vectors during training (i.e., setting 'K' in the manuscript to be very small); to fully replicate the estimators used by Richards et al. (2023+), this value must be changed (detailed comments are included in the scripts).
+Note that the scripts are designed to run quickly using a very small number of sampled parameter vectors during training (i.e., setting 'K' in the manuscript to be very small); to fully replicate the estimators used by Richards et al. (2023+), this value must be changed (detailed comments are included in the scripts). Note that we have not included code to reproduce the likelihood-based inference for the simulation study in Section 4 of Richards et al. (2023+) as i) this methodology is not pat of the novel contributions of this paper and ii) reproducing these results is not computationally feasible without access to substantial computational resources.
 
 Julia must be started with the command `julia --project=.` in order to load an environment with the correct package dependencies. Users wishing to run the scripts from the terminal may enter the following commands:
 * `julia --project=. --threads=auto src/HW_cNBE.jl`
 * `Rscript src/simulate_IMSP_random_tau.R`
 * `julia --project=. --threads=auto src/IMSP_random_tau_cNBE.jl`
-
+or run all scripts in succession using `bash all.sh`.
 
 ## References
 <ul>
